@@ -10,54 +10,54 @@ import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
 import static co.com.sofka.interactions.Click.clickOn;
 import static co.com.sofka.interactions.Scroll.scrollTo;
+import static co.com.sofka.userinterfaces.checkout.CheckoutCompleted.ORDER_DETAILS_LINK;
 import static co.com.sofka.userinterfaces.checkout.FillFormPaymentDetail.*;
 
 public class FillFormPaymentDetail implements Task {
 
-    private String documento;
-    private String correo;
-    private String nombre;
-    private String apellido;
-    private String departamento;
-    private String poblacion;
-    private String direccion;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String city;
+    private String country;
+    private String address;
+    private String zipCode;
     private String celular;
 
-    public FillFormPaymentDetail usingDocumento(String documento) {
-        this.documento = documento;
+    public FillFormPaymentDetail usingFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 
-    public FillFormPaymentDetail usingCorreo(String correo) {
-        this.correo = correo;
+    public FillFormPaymentDetail usingLastName(String lastName) {
+        this.lastName = lastName;
         return this;
     }
 
-    public FillFormPaymentDetail usingNombre(String nombre) {
-        this.nombre = nombre;
+    public FillFormPaymentDetail usingEmail(String email) {
+        this.email = email;
         return this;
     }
 
-    public FillFormPaymentDetail usingApellido(String apellido) {
-        this.apellido = apellido;
+    public FillFormPaymentDetail usingCity(String city) {
+        this.city = city;
         return this;
     }
 
-    public FillFormPaymentDetail usingDepartamento(String departamento) {
-        this.departamento = departamento;
+    public FillFormPaymentDetail usingCountry(String country) {
+        this.country = country;
         return this;
     }
 
-    public FillFormPaymentDetail usingPoblacion(String poblacion) {
-        this.poblacion = poblacion;
+    public FillFormPaymentDetail usingAddress(String address) {
+        this.address = address;
         return this;
     }
 
-    public FillFormPaymentDetail usingDireccion(String direccion) {
-        this.direccion = direccion;
+    public FillFormPaymentDetail usingZipCode(String zipCode) {
+        this.zipCode = zipCode;
         return this;
     }
-
     public FillFormPaymentDetail andUsingCelular(String celular) {
         this.celular = celular;
         return this;
@@ -66,35 +66,51 @@ public class FillFormPaymentDetail implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Scroll.to(DOCUMENTO),
-                Enter.theValue(documento).into(DOCUMENTO),
+                Scroll.to(FIRST_NAME),
+                Enter.theValue(firstName).into(FIRST_NAME),
 
-                Scroll.to(CORREO),
-                Enter.theValue(correo).into(CORREO),
+                Scroll.to(LAST_NAME),
+                Enter.theValue(lastName).into(LAST_NAME),
 
-                Scroll.to(NOMBRE),
-                Enter.theValue(nombre).into(NOMBRE),
+                Scroll.to(EMAIL),
+                Enter.theValue(email).into(EMAIL),
 
-                Scroll.to(APELLIDO),
-                Enter.theValue(apellido).into(APELLIDO),
+                Scroll.to(COUNTRY),
+                SelectFromOptions.byVisibleText(country).from(COUNTRY),
 
-                Scroll.to(DEPARTAMENTO),
-                SelectFromOptions.byVisibleText(departamento).from(DEPARTAMENTO),
+                Scroll.to(CITY),
+                Enter.theValue(city).into(CITY),
 
-                Scroll.to(POBLACION),
-                SelectFromOptions.byVisibleText(poblacion).from(POBLACION),
+                Scroll.to(ADDRESS),
+                Enter.theValue(address).into(ADDRESS),
 
-                Scroll.to(DIRECCION),
-                Enter.theValue(direccion).into(DIRECCION),
+                Scroll.to(ZIP_CODE),
+                Enter.theValue(zipCode).into(ZIP_CODE),
 
-                Scroll.to(CELULAR),
-                Enter.theValue(celular).into(CELULAR),
+                Scroll.to(PHONE_NUMBER),
+                Enter.theValue(celular).into(PHONE_NUMBER),
 
-                scrollTo(TERMS_AND_CONDITION),
-                clickOn(TERMS_AND_CONDITION),
+                Scroll.to(CONTINUE_BUTTON1),
+                Click.on(CONTINUE_BUTTON1),
 
-                scrollTo(BOTON_REALIZAR_PEDIDO),
-                clickOn(BOTON_REALIZAR_PEDIDO)
+                Scroll.to(CONTINUE_BUTTON2),
+                Click.on(CONTINUE_BUTTON2),
+
+                Scroll.to(CONTINUE_BUTTON3),
+                Click.on(CONTINUE_BUTTON3),
+
+                Scroll.to(CONTINUE_BUTTON4),
+                Click.on(CONTINUE_BUTTON4),
+
+                Scroll.to(CONTINUE_BUTTON5),
+                Click.on(CONTINUE_BUTTON5),
+
+                Scroll.to(CONTINUE_BUTTON6),
+                Click.on(CONTINUE_BUTTON6),
+
+                Scroll.to(ORDER_DETAILS_LINK),
+                Click.on(ORDER_DETAILS_LINK)
+
         );
     }
 

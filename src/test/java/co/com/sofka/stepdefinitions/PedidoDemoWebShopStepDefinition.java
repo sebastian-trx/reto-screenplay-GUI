@@ -1,18 +1,20 @@
 package co.com.sofka.stepdefinitions;
 
+import co.com.sofka.questions.checkout.OrderDetails;
 import co.com.sofka.setupui.Setup;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 
+import static co.com.sofka.task.books.BrowseTotheBooksPageAddingProducts.browseTotheBooksPageAddingProducts;
 import static co.com.sofka.task.checkout.FillFormPaymentDetail.fillFormPaymentDetail;
 import static co.com.sofka.task.landingpage.OpenLandingPage.openLandingPage;
-import static co.com.sofka.task.offers.BrowseToTheOffersAddingProducts.browseTotheOffersAddingProducts;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.core.IsEqual.equalTo;
 
-public class PedidoExitosoZonafitStepDefinition extends Setup {
+public class PedidoDemoWebShopStepDefinition extends Setup {
 
     private static final String ACTOR_NAME = "pepe";
 
@@ -25,24 +27,24 @@ public class PedidoExitosoZonafitStepDefinition extends Setup {
         );
     }
 
-    @Cuando("se dirige a la pagina de ofertas añadiendo productos al carrito")
-    public void seDirigeALaPaginaDeOfertasAñadiendoProductosAlCarrito() {
+    @Cuando("se dirige a la pagina de books añadiendo productos al carrito")
+    public void seDirigeALaPaginaDeOfertasAnhadiendoProductosAlCarrito() {
         theActorInTheSpotlight().attemptsTo(
-                browseTotheOffersAddingProducts()
+                browseTotheBooksPageAddingProducts()
         );
     }
 
     @Y("finaliza la compra llenando el formulario de detalles de pago")
-    public void finalizaLaCompraYLlenandoElFormularioDeDetallesDePago() {
+    public void finalizaLaCompraYLlenandoElFormularioDeDetallesDePago() throws InterruptedException {
         theActorInTheSpotlight().attemptsTo(
                 fillFormPaymentDetail()
-                        .usingDocumento("1234567890")
-                        .usingCorreo("pepe@yopmail.com")
-                        .usingNombre("pepe")
-                        .usingApellido("perez")
-                        .usingDepartamento("Amazonas")
-                        .usingPoblacion("Leticia - 910001")
-                        .usingDireccion("calle falsa 123")
+                        .usingFirstName("pepe")
+                        .usingLastName("perez")
+                        .usingEmail("pepe@yopmail.com")
+                        .usingCountry("Colombia")
+                        .usingCity("Bogota")
+                        .usingAddress("calle 123")
+                        .usingZipCode("123123")
                         .andUsingCelular("1234567890")
                 //crear modelo
         );
@@ -50,12 +52,9 @@ public class PedidoExitosoZonafitStepDefinition extends Setup {
 
     @Entonces("el sistema mostrara un resumen del pedido")
     public void elSistemaMostraraUnResumenDelPedido() {
-        /*
         theActorInTheSpotlight().should(
-                seeThat()
+                seeThat("nombre completo del usuario", OrderDetails.fullNameUser(), equalTo("pepe perez"))
                 );
 
-
-         */
     }
 }

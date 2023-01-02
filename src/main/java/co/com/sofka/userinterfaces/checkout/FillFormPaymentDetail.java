@@ -8,43 +8,63 @@ import static org.openqa.selenium.By.xpath;
 
 public class FillFormPaymentDetail extends PageObject {
 
-    public static final Target DOCUMENTO = Target
-            .the("DOCUMENTO")
-            .located(id("billing_myfield12"));
+    public static final Target FIRST_NAME = Target
+            .the("FIRST_NAME")
+            .located(id("BillingNewAddress_FirstName"));
 
-    public static final Target CORREO = Target
-            .the("CORREO")
-            .located(id("billing_email"));
+    public static final Target LAST_NAME = Target
+            .the("LAST_NAME")
+            .located(id("BillingNewAddress_LastName"));
 
-    public static final Target NOMBRE = Target
-            .the("NOMBRE")
-            .located(id("billing_first_name"));
+    public static final Target EMAIL = Target
+            .the("EMAIL")
+            .located(id("BillingNewAddress_Email"));
 
-    public static final Target APELLIDO = Target
-            .the("APELLIDO")
-            .located(id("billing_last_name"));
+    public static final Target COUNTRY = Target
+            .the("COUNTRY")
+            .located(id("BillingNewAddress_CountryId"));
 
-    public static final Target DEPARTAMENTO = Target
-            .the("DEPARTAMENTO")
-            .located(id("billing_state"));
+    public static final Target CITY = Target
+            .the("CITY")
+            .located(id("BillingNewAddress_City"));
 
-    public static final Target POBLACION = Target
-            .the("POBLACION")
-            .located(id("billing_city"));
+    public static final Target ADDRESS = Target
+            .the("ADDRESS")
+            .located(id("BillingNewAddress_Address1"));
 
-    public static final Target DIRECCION = Target
-            .the("DIRECCION")
-            .located(id("billing_address_1"));
+    public static final Target ZIP_CODE = Target
+            .the("ZIP_CODE")
+            .located(id("BillingNewAddress_ZipPostalCode"));
 
-    public static final Target CELULAR = Target
-            .the("CELULAR")
-            .located(id("billing_phone"));
+    public static final Target PHONE_NUMBER = Target
+            .the("PHONE_NUMBER")
+            .located(id("BillingNewAddress_PhoneNumber"));
 
-    public static final Target TERMS_AND_CONDITION = Target
-            .the("TERMS_AND_CONDITIONS")
-            .located(id("terms"));
+    public static final Target CONTINUE_BUTTON1 = Target
+            .the("CONTINUE_BUTTON1")
+            .located(xpath("//*[@id=\"billing-buttons-container\"]/input"));
 
-    public static final Target BOTON_REALIZAR_PEDIDO = Target
-            .the("BOTON_REALIZAR_PEDIDO")
-            .located(id("place_order"));
+    public static final Target CONTINUE_BUTTON2 = Target
+            .the("CONTINUE_BUTTON2")
+            .located(xpath("//*[@id=\"shipping-buttons-container\"]/input"));
+
+    public static final Target CONTINUE_BUTTON3 = Target
+            .the("CONTINUE_BUTTON3")
+            .located(xpath("//*[@id=\"shipping-method-buttons-container\"]/input"));
+
+    public static final Target CONTINUE_BUTTON4 = Target
+            .the("CONTINUE_BUTTON4")
+            .located(xpath("//*[@id=\"payment-method-buttons-container\"]/input"));
+
+    public static final Target CONTINUE_BUTTON5 = Target
+            .the("CONTINUE_BUTTON5")
+            .located(xpath("//*[@id=\"payment-info-buttons-container\"]/input"));
+
+    public static final Target CONTINUE_BUTTON6 = Target
+            .the("CONTINUE_BUTTON6")
+            .located(xpath("//*[@id=\"confirm-order-buttons-container\"]/input"));
+
+
+
+
 }
