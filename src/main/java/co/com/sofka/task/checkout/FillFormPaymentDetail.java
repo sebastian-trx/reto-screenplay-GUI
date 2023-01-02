@@ -8,8 +8,6 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
 
-import static co.com.sofka.interactions.Click.clickOn;
-import static co.com.sofka.interactions.Scroll.scrollTo;
 import static co.com.sofka.userinterfaces.checkout.CheckoutCompleted.ORDER_DETAILS_LINK;
 import static co.com.sofka.userinterfaces.checkout.FillFormPaymentDetail.*;
 

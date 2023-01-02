@@ -33,7 +33,7 @@ public class BrowseTotheBooksPageAddingProducts implements Task {
                 Click.on(CLOSE_MESSAGE.waitingForNoMoreThan(Duration.ofSeconds(3))),
 
                 Scroll.to(SHOPPING_CART),
-                Click.on(SHOPPING_CART),
+                Click.on(SHOPPING_CART.waitingForNoMoreThan(Duration.ofSeconds(3))),
 
                 Scroll.to(CHECK_TERMS),
                 Click.on(CHECK_TERMS),
