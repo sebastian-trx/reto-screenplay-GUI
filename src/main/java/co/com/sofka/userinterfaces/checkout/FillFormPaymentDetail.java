@@ -64,6 +64,14 @@ public class FillFormPaymentDetail extends PageObject {
             .the("CONTINUE_BUTTON6")
             .located(xpath("//*[@id=\"confirm-order-buttons-container\"]/input"));
 
+    public static final Target FIRST_NAME_WARN_MESSAGE = Target
+            .the("FIRST_NAME_WARN_MESSAGE")
+            .located(xpath("//*[@id=\"billing-new-address-form\"]/div/div/div/div[1]/span[2]"));
+
+    public static final Target COUNTRY_WARN_MESSAGE = Target
+            .the("COUNTRY_WARN_MESSAGE")
+            .located(xpath("//*[@id=\"billing-new-address-form\"]/div/div/div/div[5]/span[2]"));
+
 
 
 

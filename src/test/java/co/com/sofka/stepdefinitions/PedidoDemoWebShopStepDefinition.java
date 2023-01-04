@@ -2,6 +2,7 @@ package co.com.sofka.stepdefinitions;
 
 import co.com.sofka.exceptions.ValidationTextDoNotMatch;
 import co.com.sofka.models.UserInformation;
+import co.com.sofka.questions.checkout.FormWarningMessages;
 import co.com.sofka.setupui.Setup;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -77,7 +78,7 @@ public class PedidoDemoWebShopStepDefinition extends Setup {
     }
 
     @Y("finaliza la compra llenando algunos campos del formulario de detalles de pago")
-    public void finalizaLaCompraLlenandoAlgunosCamposDelFormularioDeDetallesDePago() throws InterruptedException {
+    public void finalizaLaCompraLlenandoAlgunosCamposDelFormularioDeDetallesDePago() {
         theActorInTheSpotlight().attemptsTo(
                 fillFormSomePaymentDetail()
                         .usingLastName(UserInformation.LAST_NAME)
@@ -87,12 +88,18 @@ public class PedidoDemoWebShopStepDefinition extends Setup {
                         .usingZipCode(UserInformation.ZIP_CODE)
                         .andUsingCelular(UserInformation.CELULAR)
         );
-        Thread.sleep(4000);
     }
 
     @Entonces("el sistema mostrara un mensaje en los campos obligatorios vacios")
     public void elSistemaMostraraUnMensajeEnLosCamposObligatoriosVacios() {
-        System.out.println("entonces del 2do escenario");
+        theActorInTheSpotlight().should(
+                seeThat("mensaje de advertencia en el campo first name por estar vacio",
+                        FormWarningMessages.warnMessageFromFirstNameInput(),
+                        equalTo("First name is required.")),
+                seeThat("mensaje de advertencia en el campo country por estar vacio",
+                        FormWarningMessages.warnMessageFromCountrySelectInput(),
+                        equalTo("Country is required."))
+        );
     }
 }
 
