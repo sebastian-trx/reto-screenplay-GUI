@@ -1,10 +1,10 @@
 package co.com.sofka.userinterfaces.books;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.RenderedPageObjectView;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.targets.Target;
 
-import java.time.Duration;
 
 import static org.openqa.selenium.By.xpath;
 
@@ -29,7 +29,6 @@ public class BrowseTotheBooksPageAddingProducts extends PageObject {
     public static final Target CLOSE_MESSAGE = Target
             .the("CLOSE_MESSAGE")
             .located(xpath("//*[@id=\"bar-notification\"]/span"));
-
 
     public static final Target SHOPPING_CART = Target
             .the("SHOPPING_CART")

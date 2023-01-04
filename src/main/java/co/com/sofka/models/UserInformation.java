@@ -13,7 +13,7 @@ public class UserInformation {
 
     public static final String EMAIL = faker.color().name().replaceAll("\\s","")+"@yopmail.com";
 
-    public static final String COUNTRY = faker.country().name().replaceAll("\\s","");
+    public static final String COUNTRY = "Colombia";
 
     public static final String CITY = faker.country().capital().replaceAll("\\s","");
 

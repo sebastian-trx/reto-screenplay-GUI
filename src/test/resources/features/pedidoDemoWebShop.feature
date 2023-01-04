@@ -9,3 +9,9 @@
       Entonces el sistema mostrara un resumen del pedido
 
 
+    Escenario: pedido fallido de los productos ... formulario incompleto
+      Dado que el usuario esta en la landing page
+      Cuando se dirige a la pagina de books añadiendo productos al carrito
+      Y finaliza la compra llenando algunos campos del formulario de detalles de pago
+      Entonces el sistema mostrara un mensaje en los campos obligatorios vacios
+

@@ -13,6 +13,7 @@ import static co.com.sofka.exceptions.ValidationTextDoNotMatch.compareInWithSyst
 import static co.com.sofka.questions.checkout.UserDetailsOnBilling.userDetailsOnBilling;
 import static co.com.sofka.task.books.BrowseTotheBooksPageAddingProducts.browseTotheBooksPageAddingProducts;
 import static co.com.sofka.task.checkout.FillFormPaymentDetail.fillFormPaymentDetail;
+import static co.com.sofka.task.checkout.FillFormSomePaymentDetail.fillFormSomePaymentDetail;
 import static co.com.sofka.task.landingpage.OpenLandingPage.openLandingPage;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -74,4 +75,24 @@ public class PedidoDemoWebShopStepDefinition extends Setup {
                         )
                 );
     }
+
+    @Y("finaliza la compra llenando algunos campos del formulario de detalles de pago")
+    public void finalizaLaCompraLlenandoAlgunosCamposDelFormularioDeDetallesDePago() throws InterruptedException {
+        theActorInTheSpotlight().attemptsTo(
+                fillFormSomePaymentDetail()
+                        .usingLastName(UserInformation.LAST_NAME)
+                        .usingEmail(UserInformation.EMAIL)
+                        .usingCity(UserInformation.CITY)
+                        .usingAddress(UserInformation.ADDRESS)
+                        .usingZipCode(UserInformation.ZIP_CODE)
+                        .andUsingCelular(UserInformation.CELULAR)
+        );
+        Thread.sleep(4000);
+    }
+
+    @Entonces("el sistema mostrara un mensaje en los campos obligatorios vacios")
+    public void elSistemaMostraraUnMensajeEnLosCamposObligatoriosVacios() {
+        System.out.println("entonces del 2do escenario");
+    }
 }
+

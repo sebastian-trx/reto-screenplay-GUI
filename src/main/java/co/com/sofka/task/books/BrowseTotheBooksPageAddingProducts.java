@@ -4,8 +4,9 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import java.time.Duration;
 
 import static co.com.sofka.userinterfaces.books.BrowseTotheBooksPageAddingProducts.*;
 import static co.com.sofka.userinterfaces.loginasaguest.CheckoutAsAGuest.CHECKOUT_AS_A_GUEST_BUTTON;
@@ -14,7 +15,8 @@ import static co.com.sofka.userinterfaces.shoppingcart.AgreeTerms.CHECK_TERMS;
 
 public class BrowseTotheBooksPageAddingProducts implements Task {
 
-    @Override
+
+      @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Scroll.to(BOOKS),
@@ -30,10 +32,12 @@ public class BrowseTotheBooksPageAddingProducts implements Task {
 
                 Scroll.to(BOOK3),
                 Click.on(BOOK3),
-                Click.on(CLOSE_MESSAGE.waitingForNoMoreThan(Duration.ofSeconds(3))),
+                Click.on(CLOSE_MESSAGE),
 
+                WaitUntil.the(SHOPPING_CART, WebElementStateMatchers.isVisible())
+                        .forNoMoreThan(20L).seconds(),
                 Scroll.to(SHOPPING_CART),
-                Click.on(SHOPPING_CART.waitingForNoMoreThan(Duration.ofSeconds(3))),
+                Click.on(SHOPPING_CART),
 
                 Scroll.to(CHECK_TERMS),
                 Click.on(CHECK_TERMS),
